@@ -20,13 +20,19 @@ def emo_detector():
     # Analyze the emotion of the input text
     response = emotion_detector(text_to_analyze)
 
-    # Extract individual emotions and dominant emotion
+    # Extract dominant emotion
+    dominant_emotion = response['dominant_emotion']
+
+    # Check if the dominant emotion is None
+    if dominant_emotion is None:
+        return "Invalid text! Please try again!"
+
+    # Extract individual emotions
     anger = response['anger']
     disgust = response['disgust']
     fear = response['fear']
     joy = response['joy']
     sadness = response['sadness']
-    dominant_emotion = response['dominant_emotion']
 
     # Return formatted response string
     return (
@@ -44,4 +50,3 @@ def render_index_page():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
-
