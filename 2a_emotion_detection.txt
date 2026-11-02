@@ -10,7 +10,7 @@ def emotion_detector(text_to_analyze):
     # Headers with the emotion model ID for the API
     header = {"grpc-metadata-mm-model-id": "emotion_aggregated-workflow_lang_en_stock"}
 
-    # Make a POST request to the API with the payload and headers
+    # POST request to the API with the payload and headers
     response = requests.post(url, json=myobj, headers=header)
 
     # Returning the response as received
